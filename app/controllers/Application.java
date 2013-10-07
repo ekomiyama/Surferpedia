@@ -6,6 +6,7 @@ import views.html.Index;
 import views.html.kellyslater;
 import views.html.maliamanuel;
 import views.html.jakemarshall;
+import views.html.Eddie;
 
 /**
  * Implements the controllers for this application.
@@ -44,6 +45,15 @@ public class Application extends Controller {
    */
   public static Result jakemarshall() {
     return ok(jakemarshall.render("Jake Marshall"));
+    
+  }
+  
+  /**
+   * Returns page1, a simple example of a second page to illustrate navigation.
+   * @return The Page1.
+   */
+  public static Result eddie() {
+    return ok(Eddie.render("Jake Marshall"));
     
   }
 }
