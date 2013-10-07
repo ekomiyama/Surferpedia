@@ -30,6 +30,15 @@
   
 }
 
+.carousel-5 {
+  background: url('../images/Joyce_Hoffman.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+  
+}
+
 .banner {
   background: url('../images/header.jpg');
   background-size: cover;
