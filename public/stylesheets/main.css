@@ -38,6 +38,14 @@
   height: 500px;
   
 }
+.carousel-6 {
+  background: url('../images/daize.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+  
+}
 
 .banner {
   background: url('../images/header.jpg');

@@ -8,6 +8,7 @@ import views.html.maliamanuel;
 import views.html.jakemarshall;
 import views.html.Eddie;
 import views.html.joycehoffman;
+import views.html.Daize;
 
 /**
  * Implements the controllers for this application.
@@ -67,4 +68,12 @@ public class Application extends Controller {
     
   }
 
+  /**
+   * Returns page1, a simple example of a second page to illustrate navigation.
+   * @return The Page1.
+   */
+  public static Result daize() {
+    return ok(Daize.render("Joyce Hoffman"));
+    
+  }
 }
