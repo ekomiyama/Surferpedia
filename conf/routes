@@ -4,6 +4,8 @@
 
 # Home page
 GET     /                           controllers.Application.index()
+POST    /postSurfer                 controllers.Application.postSurfer()
+GET     /newSurfer                  controllers.Application.newSurfer(slug: String ?= "")
 GET     /kellyslater                controllers.Application.kellyslater()
 GET     /maliamanuel                controllers.Application.maliamanuel()
 GET     /jakemarshall               controllers.Application.jakemarshall()
