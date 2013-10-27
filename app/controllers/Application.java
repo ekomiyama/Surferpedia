@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.Map;
+import models.Surfer;
 import models.SurferDB;
 import play.data.Form;
 import play.mvc.Controller;
@@ -9,12 +10,7 @@ import views.formdata.SurferFormData;
 import views.formdata.SurferType;
 import views.html.Index;
 import views.html.NewSurfer;
-import views.html.kellyslater;
-import views.html.maliamanuel;
-import views.html.jakemarshall;
-import views.html.Eddie;
-import views.html.joycehoffman;
-import views.html.Daize;
+import views.html.ShowSurfer;
 
 /**
  * Implements the controllers for this application.
@@ -33,7 +29,11 @@ public class Application extends Controller {
     SurferFormData data = (slug == "") ? new SurferFormData() : new SurferFormData(SurferDB.getSurfer(slug));
     Form<SurferFormData> formdata = Form.form(SurferFormData.class).fill(data);
     Map<String, Boolean> surferTypeMap = SurferType.getTypes();
-    return ok(NewSurfer.render(formdata, surferTypeMap));
+    boolean isEditing = false;
+    if(slug != "") {
+      isEditing = true;
+    }
+    return ok(NewSurfer.render(SurferDB.getSurferList(), formdata, surferTypeMap, isEditing));
   }
   
   
@@ -42,67 +42,25 @@ public class Application extends Controller {
     if (formdata.hasErrors()) {
       System.out.println("Errors Found");
       Map<String, Boolean> surferTypeMap = SurferType.getTypes();
-      return badRequest(NewSurfer.render(formdata, surferTypeMap));
+      return badRequest(NewSurfer.render(SurferDB.getSurferList(), formdata, surferTypeMap, false));
       
     }
     SurferFormData data = formdata.get();
     SurferDB.addSurfer(data);
     Map<String, Boolean> surferTypeMap = SurferType.addType(data.type);
     Form<SurferFormData> formdata2 = Form.form(SurferFormData.class);
-    return ok(NewSurfer.render(formdata2, surferTypeMap));
+    return ok(NewSurfer.render(SurferDB.getSurferList(), formdata2, surferTypeMap, false));
   }
   
-  /**
-   * Returns page1, a simple example of a second page to illustrate navigation.
-   * @return The Page1.
-   */
-  public static Result kellyslater() {
-    return ok(kellyslater.render("Kelly Slater"));
+  public static Result showSurfer(String slug) {
+    Surfer surfer = SurferDB.getSurfer(slug);
+    return ok(ShowSurfer.render(SurferDB.getSurferList(), surfer.name(), surfer.home(), surfer.awards(), surfer.bioUrl(), surfer.bio(), surfer.slug()));
     
   }
   
-  /**
-   * Returns page1, a simple example of a second page to illustrate navigation.
-   * @return The Page1.
-   */
-  public static Result maliamanuel() {
-    return ok(maliamanuel.render("Malia Manuel"));
-    
+  public static Result deleteSurfer(String slug) {
+    SurferDB.deleteSurfer(slug);
+    return ok(Index.render(SurferDB.getSurferList()));
   }
   
-  /**
-   * Returns page1, a simple example of a second page to illustrate navigation.
-   * @return The Page1.
-   */
-  public static Result jakemarshall() {
-    return ok(jakemarshall.render("Jake Marshall"));
-    
-  }
-  
-  /**
-   * Returns page1, a simple example of a second page to illustrate navigation.
-   * @return The Page1.
-   */
-  public static Result eddie() {
-    return ok(Eddie.render("Jake Marshall"));
-    
-  }
-  
-  /**
-   * Returns page1, a simple example of a second page to illustrate navigation.
-   * @return The Page1.
-   */
-  public static Result joycehoffman() {
-    return ok(joycehoffman.render("Joyce Hoffman"));
-    
-  }
-
-  /**
-   * Returns page1, a simple example of a second page to illustrate navigation.
-   * @return The Page1.
-   */
-  public static Result daize() {
-    return ok(Daize.render("Joyce Hoffman"));
-    
-  }
 }

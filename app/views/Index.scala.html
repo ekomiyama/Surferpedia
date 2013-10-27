@@ -1,6 +1,9 @@
 @(surfers: List[Surfer])
 
-@Main("Home") {
+@import helper._
+@import bootstrap3._
+
+@Main("Home", surfers) {
    <div class="container">
   <div id="carousel-example-generic" class="carousel slide">
     
@@ -14,48 +17,19 @@
         }
     </ol>
     
-    <div class="carousel-inner">
-      <div class="item active">
-        <div class="carousel-1"></div>
-        <div class="carousel-caption">
-          <h1>Kelly Slater</h1>
+    <div class="carousel-inner"> 
+      @for(surfer <- surfers) {
+        
+        @if(surfers.indexOf(surfer) == 0) {
+        <div class="item active">
+        }else {
+        <div class="item">
+        }
+        
+          @carousel(surfer.name(),
+                    surfer.carouselUrl())
         </div>
-    </div>
-    
-    <div class="item">
-        <div class="carousel-2"></div>
-        <div class="carousel-caption">
-          <h1>Malia Manuel</h1>
-        </div>
-    </div>
-    
-    <div class="item">
-        <div class="carousel-3"></div>
-        <div class="carousel-caption">
-          <h1>Jake Marshall</h1>
-        </div>
-    </div>
-    
-    <div class="item">
-        <div class="carousel-4"></div>
-        <div class="carousel-caption">
-          <h1>Eddie Aikau</h1>
-        </div>
-    </div>
-    
-    <div class="item">
-        <div class="carousel-5"></div>
-        <div class="carousel-caption">
-          <h1>Joyce Hoffman</h1>
-        </div>
-    </div>
-       
-           <div class="item">
-        <div class="carousel-6"></div>
-        <div class="carousel-caption">
-          <h1>Daize Shayne</h1>
-        </div>
-    </div>     
+      }
   </div>
   
    <!-- Controls -->

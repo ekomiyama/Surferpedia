@@ -1,0 +1,21 @@
+@(surfers: List[Surfer], name: String, home: String, awards: String, bioPic: String, bio: String, slug: String)
+
+@Main("/surfer/@slug", surfers) {
+<div class="container row">
+     <div class="col-md-4 well">
+       <img src='@bioPic'>
+     </div>
+     <div class="col-md-8 well">
+     <h1 class="aligncenter">@name</h1>
+     <p><b>Hometown:</b> @home</p>
+     @if(awards != "") {
+     <p><b>Awards:</b> @awards</p>
+     }
+     <p><b>Biography: </b>@bio</p>
+     <div style= "text-align:left"><a href="@routes.Application.newSurfer(slug)">Edit</a></div>
+     <div style= "text-align:right"><a href="@routes.Application.deleteSurfer(slug)">Delete</a></div>
+     </div>
+     
+     </div>
+     
+}

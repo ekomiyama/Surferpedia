@@ -66,7 +66,7 @@ public class Surfer {
     return slug;
   }
   
-  public String type() {
+  public String surferType() {
     return type;
   }
   

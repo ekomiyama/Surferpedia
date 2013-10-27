@@ -1,17 +1,10 @@
 @(surferName: String, surferUrl: String)
 
-<style>
-.carouselImage {
-  background: url("@surferUrl");
-  background-size: cover;
-  background-position: center;
-  height: 400px;
-  }
-  </style>
   
-<div class="item active">
-          <div class="carouselImage"></div>
+          <div style="background: url('@surferUrl');
+                      background-size: cover;
+                      background-position: center;
+                      height: 400px;"></div>
           <div class="carousel-caption">
             <h3>@surferName</h3>
           </div>
-        </div>

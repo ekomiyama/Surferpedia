@@ -1,9 +1,9 @@
-@(surferForm : Form[views.formdata.SurferFormData], surferTypeMap : Map[String, Boolean])
+@(surfers: List[Surfer], surferForm : Form[views.formdata.SurferFormData], surferTypeMap : Map[String, Boolean], isEditing: Boolean)
 
 @import helper._
 @import bootstrap3._
 
-@Main("NewSurfer") {
+@Main("NewSurfer", surfers) {
 <div class="container">
 <h1>New Surfer</h1>
    @form(routes.Application.postSurfer(), 'class -> "form-horizontal") {
@@ -37,10 +37,23 @@
         label = "Bio",
         help = "One paragraph description of this surfer")
         
-        @text(surferForm("slug"),
-        label = "Slug",
-        placeholder = "",
-        help = "Slug field cannot be edited for an existing surfer")
+        @if(isEditing) {
+        
+          @slug(surferForm("slug"),
+          label = "Slug",
+          placeholder = "",
+          help = "Slug field cannot be edited for an existing surfer",
+          isEditing = true)
+          
+        } else {
+        
+          @slug(surferForm("slug"),
+          label = "Slug",
+          placeholder = "",
+          help = "Slug field cannot be edited for an existing surfer",
+          isEditing = false)
+        
+        }
         
         @typeList(surferForm("type"),
         isMultiple = false,

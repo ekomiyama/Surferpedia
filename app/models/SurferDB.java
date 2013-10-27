@@ -26,7 +26,8 @@ public class SurferDB {
   public static Surfer getSurfer(String surferSlug) {
     Surfer surfer = surfers.get(surferSlug);
     if(surfer == null) {
-      throw new RuntimeException("The Surfer does not exist at slug: " + surferSlug);
+      return null;
+      //throw new RuntimeException("The Surfer does not exist at slug: " + surferSlug);
     }
     return surfer;
   }

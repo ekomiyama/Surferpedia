@@ -48,7 +48,7 @@ public class SurferFormData {
     this.bio = surfer.bio();
     this.awards = surfer.awards();
     this.slug = surfer.slug();
-    this.type = surfer.type();
+    this.type = surfer.surferType();
   }
   
   public boolean isClean() {
@@ -56,11 +56,11 @@ public class SurferFormData {
     int slugLength = slug.length();
     for(int i=0; i < slugLength; i++) {
       char check = slug.charAt(i);
-      if(check == '/' || check == '?' || check == '<' || check == '>' || check == '.' || check == ',' || 
-         check == ';' || check == '\'' || check == ':' || check == '[' || check == ']' || check == '{' || 
-         check == '}' || check == '|' || check == '+' || check == '=' || check == '-' || check == '_' || 
-         check == '!' || check == '@' || check == '#' || check == '$' || check == '%' || check == '^' || 
-         check == '&' || check == '*' || check == '(' || check == ')' || check == '\"') {
+      if(check == '/' || check == '?' || check == '<' || check == '>' || 
+         check == ':' || check == '[' || check == ']' || check == '{' || check == '*' ||
+         check == '}' || check == '|' || check == '+' || check == '=' ||  check == '_' || 
+         check == '@' || check == '#' || check == '$' || check == '%' || check == '^' || 
+         check == '(' || check == ')') {
         return false;
       }
     }

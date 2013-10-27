@@ -60,3 +60,11 @@ img {
   width: 350px;
   
 }
+
+.aligncenter {
+  text-align:center;
+}
+
+.well {
+  margin-right:0px;
+}

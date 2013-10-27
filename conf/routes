@@ -5,13 +5,10 @@
 # Home page
 GET     /                           controllers.Application.index()
 POST    /postSurfer                 controllers.Application.postSurfer()
-GET     /newSurfer                  controllers.Application.newSurfer(slug: String ?= "")
-GET     /kellyslater                controllers.Application.kellyslater()
-GET     /maliamanuel                controllers.Application.maliamanuel()
-GET     /jakemarshall               controllers.Application.jakemarshall()
-GET     /eddie                      controllers.Application.eddie()
-GET     /joyce                      controllers.Application.joycehoffman()
-GET     /daize                      controllers.Application.daize()
+GET     /newSurfer                  controllers.Application.newSurfer(slug)
+GET     /surfer/:slug               controllers.Application.showSurfer(slug)
+GET     /surfer/:slug/delete        controllers.Application.deleteSurfer(slug)
+GET     /surfer/:slug/edit          controllers.Application.newSurfer(slug)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
