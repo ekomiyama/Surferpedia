@@ -1,6 +1,6 @@
 Surferpedia
 ===========
-![screenshot](https://raw.github.com/evkomiyama/Surferpedia/dynamic/doc/home.png)
+!(https://raw.github.com/evkomiyama/Surferpedia/dynamic/doc/home.png)
 
 Overview
 ===========
