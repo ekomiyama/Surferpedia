@@ -1,6 +1,6 @@
 Surferpedia
 ===========
-!(https://raw.github.com/evkomiyama/Surferpedia/dynamic/doc/home.png)
+![screenshot](https://raw.github.com/ekomiyama/Surferpedia/dynamic/doc/home.png)
 
 Overview
 ===========
@@ -18,10 +18,10 @@ Installation
 Usage
 ==========  
 -Add new surfers to the website using the New Surfer form.
-![screenshot](https://raw.github.com/evkomiyama/Surferpedia/dynamic/doc/form.png)
+![screenshot](https://raw.github.com/ekomiyama/Surferpedia/dynamic/doc/form.png)
 
 -Freely edit specific surfer information using the edit button.
 -Delete surfers from the website by using the delete button in the surfer page.
-![screenshot](https://raw.github.com/evkomiyama/Surferpedia/dynamic/doc/surfer.png)
+![screenshot](https://raw.github.com/ekomiyama/Surferpedia/dynamic/doc/surfer.png)
 
  
