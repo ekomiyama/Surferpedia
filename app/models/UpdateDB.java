@@ -18,4 +18,12 @@ public class UpdateDB {
     updates.add(update);
   }
   
+  /**
+   * Return a list of updates.
+   * @return A list of updates.
+   */
+  public static List<Update> getUpdates() {
+    return updates;
+  }
+  
 }

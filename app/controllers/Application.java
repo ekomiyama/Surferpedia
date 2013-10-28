@@ -1,8 +1,11 @@
 package controllers;
 
+import java.util.List;
 import java.util.Map;
 import models.Surfer;
 import models.SurferDB;
+import models.Update;
+import models.UpdateDB;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -62,6 +65,11 @@ public class Application extends Controller {
   public static Result deleteSurfer(String slug) {
     SurferDB.deleteSurfer(slug);
     return ok(Index.render(SurferDB.getSurferList()));
+  }
+  
+  public static Result update() {
+    List<Update> updateList = UpdateDB.getUpdates();
+    return ok(Update.render(updateList));
   }
   
 }
