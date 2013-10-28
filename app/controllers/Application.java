@@ -1,5 +1,8 @@
 package controllers;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import models.Surfer;
@@ -37,6 +40,8 @@ public class Application extends Controller {
     boolean isEditing = false;
     if(slug != "") {
       isEditing = true;
+      Update update = new Update(UpdateDB.getDate(), "Edit", SurferDB.getSurfer(slug).name());
+      UpdateDB.addUpdate(update);
     }
     return ok(NewSurfer.render(SurferDB.getSurferList(), formdata, surferTypeMap, isEditing));
   }
@@ -64,6 +69,8 @@ public class Application extends Controller {
   }
   
   public static Result deleteSurfer(String slug) {
+    Update update = new Update(UpdateDB.getDate(), "Delete", SurferDB.getSurfer(slug).name());
+    UpdateDB.addUpdate(update);
     SurferDB.deleteSurfer(slug);
     return ok(Index.render(SurferDB.getSurferList()));
   }

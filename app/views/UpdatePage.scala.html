@@ -6,7 +6,7 @@
 <table class="table">
 <tr><td>Date</td><td>Action</td><td>Surfer</td></tr>
 @for(update <- updates) {
-<tr><td>update.getDate()</td><td>update.getAction()</td><td>update.getSurfer()</td></tr>
+<tr><td>@update.getDate()</td><td>@update.getAction()</td><td>@update.getSurfer()</td></tr>
 }
 </table>
 </div>
