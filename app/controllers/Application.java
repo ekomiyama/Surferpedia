@@ -25,6 +25,7 @@ public class Application extends Controller {
     return ok(Index.render(SurferDB.getSurferList()));
   }
   
+  
   public static Result newSurfer(String slug) {
     SurferFormData data = (slug == "") ? new SurferFormData() : new SurferFormData(SurferDB.getSurfer(slug));
     Form<SurferFormData> formdata = Form.form(SurferFormData.class).fill(data);
