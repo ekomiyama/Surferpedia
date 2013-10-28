@@ -68,8 +68,9 @@ public class Application extends Controller {
   }
   
   public static Result update() {
+    List<Surfer> surfers = SurferDB.getSurferList();
     List<Update> updateList = UpdateDB.getUpdates();
-    return ok(Update.render(updateList));
+    return ok(Update.render(updateList, surfers));
   }
   
 }
