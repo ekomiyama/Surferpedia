@@ -9,6 +9,19 @@ public class Update {
   private String date;
   private String action;
   private String surfer;
+  
+  
+  /**
+   * @param date The date for the update.
+   * @param action The aciton of the update.
+   * @param surfer The surfer name.
+   */
+  public Update(String date, String action, String surfer) {
+    this.date = date;
+    this.action = action;
+    this.surfer = surfer;
+  }
+  
   /**
    * @return the date
    */

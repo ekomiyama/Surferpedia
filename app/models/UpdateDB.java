@@ -29,10 +29,10 @@ public class UpdateDB {
   
   /**
    * Get current date.
-   * @return
+   * @return A string of the current date.
    */
-  public static Date getDate() {
-    return new java.util.Date();
+  public static String getDate() {
+    return new java.util.Date().toString();
   }
   
 }
