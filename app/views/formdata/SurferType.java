@@ -8,7 +8,7 @@ import java.util.Map;
  */
 public class SurferType {
 
-  private static String[] types = { "Male", "Female", "Grom" };
+  private static String[] types = {"Male", "Female", "Grom"};
 
   /**
    * Get a mapping of types.
