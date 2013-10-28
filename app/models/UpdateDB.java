@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,6 +25,14 @@ public class UpdateDB {
    */
   public static List<Update> getUpdates() {
     return updates;
+  }
+  
+  /**
+   * Get current date.
+   * @return
+   */
+  public static Date getDate() {
+    return new java.util.Date();
   }
   
 }
