@@ -14,7 +14,7 @@ import views.formdata.SurferType;
 import views.html.Index;
 import views.html.NewSurfer;
 import views.html.ShowSurfer;
-import views.html.Update;
+import views.html.UpdatePage;
 
 /**
  * Implements the controllers for this application.
@@ -71,7 +71,7 @@ public class Application extends Controller {
   public static Result update() {
     List<Surfer> surfers = SurferDB.getSurferList();
     List<Update> updateList = UpdateDB.getUpdates();
-    return ok(Update.render(updateList, surfers));
+    return ok(UpdatePage.render(updateList, surfers));
   }
   
 }
