@@ -1,11 +1,13 @@
 package controllers;
 
+import java.util.List;
 import java.util.Map;
 import models.Surfer;
 import models.SurferDB;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import views.formdata.FootstyleTypes;
 import views.formdata.SurferFormData;
 import views.formdata.SurferType;
 import views.html.Index;
@@ -29,11 +31,12 @@ public class Application extends Controller {
     SurferFormData data = (slug == "") ? new SurferFormData() : new SurferFormData(SurferDB.getSurfer(slug));
     Form<SurferFormData> formdata = Form.form(SurferFormData.class).fill(data);
     Map<String, Boolean> surferTypeMap = SurferType.getTypes();
+    List<String> footstyleTypeMap = FootstyleTypes.getTypes();
     boolean isEditing = false;
     if(slug != "") {
       isEditing = true;
     }
-    return ok(NewSurfer.render(SurferDB.getSurferList(), formdata, surferTypeMap, isEditing));
+    return ok(NewSurfer.render(SurferDB.getSurferList(), formdata, surferTypeMap, footstyleTypeMap, isEditing));
   }
   
   
@@ -42,19 +45,21 @@ public class Application extends Controller {
     if (formdata.hasErrors()) {
       System.out.println("Errors Found");
       Map<String, Boolean> surferTypeMap = SurferType.getTypes();
-      return badRequest(NewSurfer.render(SurferDB.getSurferList(), formdata, surferTypeMap, false));
+      List<String> footstyleTypeMap = FootstyleTypes.getTypes();
+      return badRequest(NewSurfer.render(SurferDB.getSurferList(), formdata, surferTypeMap, footstyleTypeMap, false));
       
     }
     SurferFormData data = formdata.get();
     SurferDB.addSurfer(data);
     Map<String, Boolean> surferTypeMap = SurferType.addType(data.type);
+    List<String> footstyleTypeMap = FootstyleTypes.addType(data.type);
     Form<SurferFormData> formdata2 = Form.form(SurferFormData.class);
-    return ok(NewSurfer.render(SurferDB.getSurferList(), formdata2, surferTypeMap, false));
+    return ok(NewSurfer.render(SurferDB.getSurferList(), formdata2, surferTypeMap, footstyleTypeMap, false));
   }
   
   public static Result showSurfer(String slug) {
     Surfer surfer = SurferDB.getSurfer(slug);
-    return ok(ShowSurfer.render(SurferDB.getSurferList(), surfer.name(), surfer.home(), surfer.awards(), surfer.bioUrl(), surfer.bio(), surfer.slug()));
+    return ok(ShowSurfer.render(SurferDB.getSurferList(), surfer.name(), surfer.home(), surfer.awards(), surfer.footstyle(), surfer.bioUrl(), surfer.bio(), surfer.slug()));
     
   }
   

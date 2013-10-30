@@ -24,12 +24,14 @@ public class SurferFormData {
   
   public String type = "";
   
+  public String footstyle = "";
+  
   public SurferFormData() {
     //Initialize Nothing
   }
   
   
-  public SurferFormData(String name, String home, String awards, String carouselUrl, String bioUrl, String bio, String slug, String type) {
+  public SurferFormData(String name, String home, String awards, String footstyle, String carouselUrl, String bioUrl, String bio, String slug, String type) {
     this.name = name;
     this.home = home;
     this.carouselUrl = carouselUrl;
@@ -38,6 +40,7 @@ public class SurferFormData {
     this.awards = awards;
     this.slug = slug;
     this.type = type;
+    this.footstyle = footstyle;
   }
   
   public SurferFormData(Surfer surfer) {
@@ -49,6 +52,7 @@ public class SurferFormData {
     this.awards = surfer.awards();
     this.slug = surfer.slug();
     this.type = surfer.surferType();
+    this.footstyle = surfer.footstyle();
   }
   
   public boolean isClean() {
@@ -102,6 +106,10 @@ public class SurferFormData {
     
     if(! SurferType.hasType(type)) {
       errors.add(new ValidationError("type", "Surfer Type is Required"));
+    }
+    
+    if(footstyle == "") {
+      errors.add(new ValidationError("footstyle", "Surfer Foot Style is Required."));
     }
     
     return(errors.isEmpty()? null: errors);

@@ -1,4 +1,4 @@
-@(surfers: List[Surfer], name: String, home: String, awards: String, bioPic: String, bio: String, slug: String)
+@(surfers: List[Surfer], name: String, home: String, awards: String, footstyle: String, bioPic: String, bio: String, slug: String)
 
 @Main("/surfer/@slug", surfers) {
 <div class="container row">
@@ -11,6 +11,7 @@
      @if(awards != "") {
      <p><b>Awards:</b> @awards</p>
      }
+     <p><b>Foot Stlye: </b>@footstyle</p>
      <p><b>Biography: </b>@bio</p>
      <div style= "text-align:left"><a href="@routes.Application.newSurfer(slug)">Edit</a></div>
      <div style= "text-align:right"><a data-toggle="modal" data-target="#deleteModal">Delete</a></div>

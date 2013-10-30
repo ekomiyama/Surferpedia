@@ -13,8 +13,8 @@ public class SurferDB {
   public static Surfer addSurfer(SurferFormData surferForm) {
     Surfer surfer;
     surfer = new Surfer(surferForm.name, surferForm.home, surferForm.awards, 
-                        surferForm.carouselUrl, surferForm.bioUrl, surferForm.bio, 
-                        surferForm.slug, surferForm.type);
+                        surferForm.footstyle, surferForm.carouselUrl, 
+                        surferForm.bioUrl, surferForm.bio, surferForm.slug, surferForm.type);
     surfers.put(surfer.slug(), surfer);
     return surfer;
   }

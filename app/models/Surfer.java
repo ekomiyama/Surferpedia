@@ -23,7 +23,9 @@ public class Surfer {
   
   private String type = "";
   
-  public Surfer(String name, String home, String awards, String carouselUrl, String bioUrl, String bio, String slug, String type) {
+  private String footstyle ="";
+  
+  public Surfer(String name, String home, String awards, String footstyle, String carouselUrl, String bioUrl, String bio, String slug, String type) {
     this.name = name;
     this.home = home;
     this.carouselUrl = carouselUrl;
@@ -32,6 +34,7 @@ public class Surfer {
     this.awards = awards;
     this.slug = slug;
     this.type = type;
+    this.footstyle = footstyle;
   }
   
   /**
@@ -68,6 +71,10 @@ public class Surfer {
   
   public String surferType() {
     return type;
+  }
+  
+  public String footstyle() {
+    return footstyle;
   }
   
 
