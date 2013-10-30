@@ -13,7 +13,25 @@
      }
      <p><b>Biography: </b>@bio</p>
      <div style= "text-align:left"><a href="@routes.Application.newSurfer(slug)">Edit</a></div>
-     <div style= "text-align:right"><a href="@routes.Application.deleteSurfer(slug)">Delete</a></div>
+     <div style= "text-align:right"><a data-toggle="modal" data-target="#deleteModal">Delete</a></div>
+     <div class="modal fade" id="deleteModal">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+             <h4 class="modal-title">Really Delete Surfer?</h4>
+           </div>
+           <div class="modal-body">
+             <p>This cannot be undone&hellip;</p>
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+             <a class="btn btn-primary" href="@routes.Application.deleteSurfer(slug)">Delete</a>
+           </div>
+         </div><!-- /.modal-content -->
+       </div><!-- /.modal-dialog -->
+     </div><!-- /.modal -->
+     
      </div>
      
      </div>
