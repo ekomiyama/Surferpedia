@@ -2,6 +2,7 @@ import models.SurferDB;
 import models.UserInfoDB;
 import play.Application;
 import play.GlobalSettings;
+import play.Play;
 import views.formdata.SurferFormData;
 
 
@@ -9,8 +10,9 @@ public class Global extends GlobalSettings {
 
   public void onStart(Application app) {
     
-    UserInfoDB.addUserInfo("John Smith", "smith@example.com", "password"); 
-    UserInfoDB.addUserInfo("Mike Jones", "jones@example.com", "password");
+    String adminEmail = Play.application().configuration().getString("surf.admin.email");
+    String adminPassword = Play.application().configuration().getString("surf.admin.password");
+    UserInfoDB.defineAdmin("Administrator", adminEmail, adminPassword);
     
     String kellyCarouselUrl = "http://upload.wikimedia.org/wikipedia/commons/1/1b/KellySlater_byRobKeaton.jpg";
     String kellyBioUrl = "http://the-quiksilver-initiative.com/var/ezwebin_site/storage/images/header_nav/ambassadeurs/kelly-slater/4977-4-eng-GB/Kelly-Slater_article_full.jpg";

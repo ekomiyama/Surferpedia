@@ -5,5 +5,9 @@
 @Main(page, isLoggedIn, userInfo, surfers) {
    <div class="container">
      @loginform(routes.Application.postLogin(), loginForm("email"), loginForm("password"))
+     
+     @(!models.UserInfoDB.adminDefined()) {
+       <div class="alert alert-danger"><b>WARNING:</b> Admin credentials have not been defined</div>
+     }
    </div>
 }
