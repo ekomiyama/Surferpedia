@@ -1,6 +1,6 @@
-@(surfers: List[Surfer], name: String, home: String, awards: String, footstyle: String, bioPic: String, bio: String, slug: String)
+@(page: String, isLoggedIn: Boolean, userInfo: UserInfo, surfers: List[Surfer], name: String, home: String, awards: String, footstyle: String, bioPic: String, bio: String, slug: String)
 
-@Main("/surfer/@slug", surfers) {
+@Main(page, isLoggedIn, userInfo, surfers) {
 <div class="container row">
      <div class="col-md-4 well">
        <img src='@bioPic'>
@@ -13,8 +13,10 @@
      }
      <p><b>Foot Stlye: </b>@footstyle</p>
      <p><b>Biography: </b>@bio</p>
+     @if(isLoggedIn) {
      <div style= "text-align:left"><a href="@routes.Application.newSurfer(slug)">Edit</a></div>
      <div style= "text-align:right"><a data-toggle="modal" data-target="#deleteModal">Delete</a></div>
+     }
      <div class="modal fade" id="deleteModal">
        <div class="modal-dialog">
          <div class="modal-content">

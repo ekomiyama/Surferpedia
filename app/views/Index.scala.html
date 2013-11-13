@@ -1,9 +1,9 @@
-@(surfers: List[Surfer])
+@(page: String, isLoggedIn: Boolean, userInfo: UserInfo, surfers: List[Surfer])
 
 @import helper._
 @import bootstrap3._
 
-@Main("Home", surfers) {
+@Main(page, isLoggedIn, userInfo, surfers) {
    <div class="container">
   <div id="carousel-example-generic" class="carousel slide">
     

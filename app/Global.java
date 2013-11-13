@@ -1,4 +1,5 @@
 import models.SurferDB;
+import models.UserInfoDB;
 import play.Application;
 import play.GlobalSettings;
 import views.formdata.SurferFormData;
@@ -7,6 +8,10 @@ import views.formdata.SurferFormData;
 public class Global extends GlobalSettings {
 
   public void onStart(Application app) {
+    
+    UserInfoDB.addUserInfo("John Smith", "smith@example.com", "password"); 
+    UserInfoDB.addUserInfo("Mike Jones", "jones@example.com", "password");
+    
     String kellyCarouselUrl = "http://upload.wikimedia.org/wikipedia/commons/1/1b/KellySlater_byRobKeaton.jpg";
     String kellyBioUrl = "http://the-quiksilver-initiative.com/var/ezwebin_site/storage/images/header_nav/ambassadeurs/kelly-slater/4977-4-eng-GB/Kelly-Slater_article_full.jpg";
     String kellyBio = "Robert Kelly Slater (born February 11, 1972, Cocoa Beach, Florida, US) is an American professional surfer known for his competitive prowess and style. He has been crowned ASP World Tour Champion a record 11 times, including 5 consecutive titles from 1994-98. He is the youngest (at age 20) and the oldest (at age 39) to win the title. Upon winning his 5th world title in 1997, Slater passed Australian surfer Mark Richards to become the most successful champion in the history of the sport. In 2007 he also became the all-time leader in career event wins by winning the Boost Mobile Pro event at Lower Trestles near San Clemente, California. The previous record was held by Slater's childhood hero, 3-time world champion Tom Curren.";
